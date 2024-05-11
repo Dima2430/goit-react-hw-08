@@ -1,8 +1,9 @@
-import { setFilter } from "../../redux/filtersSlice";
+import { selectFilter } from "../../redux/filters/selectors";
+import { setFilter } from "../../redux/filters/slice";
 import { useDispatch, useSelector } from "react-redux";
 const SearchBox = () => {
   const dispatch = useDispatch();
-  const value = useSelector((state) => state.filters.value);
+  const value = useSelector(selectFilter);
   return (
     <div>
       <input
