@@ -1,0 +1,31 @@
+.link {
+  display: inline-block;
+  padding: 10px 30px;
+  color: #fff;
+  background-color: skyblue;
+  border-radius: 5px;
+}
+
+.active {
+  background-color: rgba(0, 89, 255, 0.903);
+}
+
+.list {
+  display: flex;
+  gap: 10px;
+  padding: 0;
+}
+.nav {
+  position: absolute;
+  top: 30%;
+  right: 30%;
+}
+.title {
+  margin: 0 auto;
+  width: 130px;
+}
+.hide {
+  display: none;
+  visibility: hidden;
+  pointer-events: none;
+}
