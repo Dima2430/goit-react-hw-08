@@ -1,8 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
-import { login } from "../redux/auth/operations";
+import { login } from "../../redux/auth/operations";
 import * as Yup from "yup";
-
+import css from "./LoginForm.module.css";
 const LoginForm = () => {
   const dispatch = useDispatch();
 
@@ -18,23 +18,32 @@ const LoginForm = () => {
         resetForm();
       }}
     >
-      <Form>
+      <Form className={css.form}>
         <div>
           <label>
-            <span> Email</span>
-            <Field type="text" name="email" />
+            <Field
+              placeholder="Email"
+              className={css.input}
+              type="text"
+              name="email"
+            />
             <ErrorMessage name="email" as="span" />
           </label>
         </div>
         <div>
           <label>
-            <span> Password</span>
-
-            <Field type="password" name="password" />
+            <Field
+              placeholder="Password"
+              className={css.input}
+              type="password"
+              name="password"
+            />
             <ErrorMessage name="password" as="span" />
           </label>
         </div>
-        <button type="submit">Log in</button>
+        <button className={css.btn} type="submit">
+          Log in
+        </button>
       </Form>
     </Formik>
   );

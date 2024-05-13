@@ -1,8 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-
+import css from "./RegistrationForm.module.css";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { register } from "../redux/auth/operations";
+import { register } from "../../redux/auth/operations";
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   return (
@@ -18,31 +18,44 @@ const RegistrationForm = () => {
         resetForm();
       }}
     >
-      <Form>
+      <Form className={css.form}>
         <div>
           <label>
-            <span>Name</span>
-            <Field type="text" name="name" />
+            <Field
+              className={css.input}
+              placeholder="Name"
+              type="text"
+              name="name"
+            />
             <ErrorMessage name="name" as="span" />
           </label>
         </div>
 
         <div>
           <label>
-            <span> Email</span>
-            <Field type="text" name="email" />
+            <Field
+              className={css.input}
+              placeholder="Email"
+              type="text"
+              name="email"
+            />
             <ErrorMessage name="email" as="span" />
           </label>
         </div>
         <div>
           <label>
-            <span> Password</span>
-
-            <Field type="password" name="password" />
+            <Field
+              className={css.input}
+              placeholder="Password"
+              type="password"
+              name="password"
+            />
             <ErrorMessage name="password" as="span" />
           </label>
         </div>
-        <button type="submit">Sign up</button>
+        <button className={css.btn} type="submit">
+          Sign up
+        </button>
       </Form>
     </Formik>
   );

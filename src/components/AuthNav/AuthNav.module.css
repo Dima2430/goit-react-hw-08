@@ -5,7 +5,10 @@
   background-color: skyblue;
   border-radius: 5px;
 }
-
+.link:hover {
+  color: #fff;
+  transform: scale(1.03);
+}
 .active {
   background-color: rgba(0, 89, 255, 0.903);
 }
@@ -17,8 +20,9 @@
 }
 .nav {
   position: absolute;
-  top: 30%;
-  right: 30%;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .title {
   margin: 0 auto;

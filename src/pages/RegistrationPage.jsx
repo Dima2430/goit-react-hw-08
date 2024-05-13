@@ -1,4 +1,4 @@
-import RegistrationForm from "../components/RegistrationForm";
+import RegistrationForm from "../components/RegistrationForm/RegistrationForm";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
