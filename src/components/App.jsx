@@ -34,7 +34,14 @@ const App = () => {
   ) : (
     <Layout key={logoutKey} onLogout={handleLogout}>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={
+            <RestrictedRoute>
+              <RegisterPage />
+            </RestrictedRoute>
+          }
+        />
         <Route
           path="/register"
           element={
