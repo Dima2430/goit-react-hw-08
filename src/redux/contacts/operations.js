@@ -27,9 +27,41 @@ export const addContact = createAsyncThunk(
   "contacts/addContact",
   async (text, thunkAPI) => {
     try {
-      const response = await axios.post("/contacts", {
-        name: text.name,
-        number: text.number,
+      // Get the state
+      const state = thunkAPI.getState();
+      // Add headers
+      const response = await axios.post(
+        "/contacts",
+        {
+          name: text.name,
+          number: text.number,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${state.auth.token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const deleteContact = createAsyncThunk(
+  "contacts/deleteContact",
+  async (contactId, thunkAPI) => {
+    try {
+      // Get the state
+      const state = thunkAPI.getState();
+      // Add headers
+      const response = await axios.delete(`/contacts/${contactId}`, {
+        headers: {
+          Authorization: `Bearer ${state.auth.token}`,
+          "Content-Type": "application/json",
+        },
       });
       return response.data;
     } catch (e) {
@@ -37,14 +69,4 @@ export const addContact = createAsyncThunk(
     }
   }
 );
-export const deleteContact = createAsyncThunk(
-  "contacts/deleteContact",
-  async (contactId, thunkAPI) => {
-    try {
-      const response = await axios.delete(`/contacts/${contactId}`);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
+
