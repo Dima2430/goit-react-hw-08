@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { setToken } from "../auth/operations";
-axios.defaults.baseURL = "https://connections-api.herokuapp.com";
+axios.defaults.baseURL = "https://nodejs-hw-mongodb-jzmm.onrender.com";
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
